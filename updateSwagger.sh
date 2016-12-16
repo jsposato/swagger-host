@@ -7,20 +7,38 @@
 #
 ################################################################################
 
-# First check to make sure script is running as root (sudo)
+# First check to make sure script is running as root
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
 
+nginx_public_directory="/usr/share/nginx/html"
+s3_bucket_name=""
+
 ### Download all JSON files from API Doc store
 echo "Downloading Swagger spec from S3"
-aws s3 cp s3://mobforrester-server-resources/ftap-swagger.json /usr/share/nginx/
+cd $HOME
+aws s3 sync s3://${s3_bucket_name} .
 
+files="*.json"
+for file in ${files}
+    do
+        echo "${file}"
+        # get filename without extension
+        filename="${file%.*}"
 
-### For each JSON file, create nginx directory if it doesn't exist, then bootprint the json to the nginx directory
-echo "Converting Swagger JSON to HTML"
-bootprint openapi /usr/share/nginx/ftap-swagger.json /usr/share/nginx/html/forrester
+        echo "${filename}"
+
+        # create filename directory in nginx public directory if it doesn't exist
+        if [ ! -d "${nginx_public_directory}/${filename}" ]; then
+            mkdir "${nginx_public_directory}/${filename}"
+        fi
+
+        # bootprint json into html in the filename directory
+        echo "Converting Swagger JSON to HTML"
+        bootprint openapi "${file}" "${nginx_public_directory}/${filename}"
+done
 
 echo "All Done!!"
 

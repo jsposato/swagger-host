@@ -12,7 +12,7 @@
 AWS and make sure nginx is installed and working properly
 * Install nodejs, bootprint and bootprint-openapi
 * Upload updateSwagger.sh to the ec2-user home directory
-* Create a symlink (` ln -s `) of updateSwagger.sh into /etc/cron.daily to 
+* Create a symlink (` sudo ln -s /home/ec2-user/updateSwagger.sh /etc/cron.daily/ `) of updateSwagger.sh into /etc/cron.daily to 
 ensure automatic updates
 
 ## Authentication

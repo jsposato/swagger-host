@@ -5,6 +5,7 @@
 * nodejs 6.9.2
 * bootprint@0.8.5
 * bootprint-openapi@0.17.0
+* currently only supports Swagger files in JSON format
 
 ## Installation
 * Create an IAM instance profile and grant S3 read access to it

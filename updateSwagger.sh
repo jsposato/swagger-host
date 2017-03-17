@@ -37,7 +37,10 @@ for file in ${files}
 
         # bootprint json into html in the filename directory
         echo "Converting Swagger JSON to HTML"
-        bootprint openapi "${file}" "${nginx_public_directory}/${filename}"
+        # continue on error
+        if bootprint openapi "${file}" "${nginx_public_directory}/${filename}"; then
+            continue
+        fi
 done
 
 echo "All Done!!"

@@ -2,6 +2,8 @@
 ## Requirements
 * Amazon Linux EC2 Instance
 * nginx
+* PHP 5.3.29
+* PHP-FPM 5.3.29
 * nodejs 6.9.2
 * bootprint@0.8.5
 * bootprint-openapi@0.17.0
@@ -15,6 +17,8 @@ AWS and make sure nginx is installed and working properly
 * Upload updateSwagger.sh to the ec2-user home directory
 * Create a symlink (` sudo ln -s /home/ec2-user/updateSwagger.sh /etc/cron.daily/ `) of updateSwagger.sh into /etc/cron.daily to 
 ensure automatic updates
+* Configure nginx to parse PHP files
+* Upload the index.php file to the document root of your web server
 
 ## Authentication
 You can use Nginx to provide password authentication to your docs.  There 

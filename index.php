@@ -25,7 +25,7 @@
                         continue;
                     }
                     ?>
-                    <li><a href="<?php echo $directory ?>>"><?php echo ucwords(basename($directory)) ?></a></li>
+                    <li><a href="<?php echo $directory ?>"><?php echo ucwords(basename($directory)) ?></a></li>
 
                     <?php
 

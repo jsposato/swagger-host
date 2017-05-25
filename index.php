@@ -7,6 +7,10 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
 
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 </head>
 <body>
 <div class="container">
@@ -14,7 +18,7 @@
         <div class="col-xs-4">
 
             <h1>Swagger Projects</h1>
-            <ul>
+            <div class="list-group">
                 <?php
                 ini_set("display_errors", "1");
                 $directories = glob(__DIR__ . '/*', GLOB_ONLYDIR);
@@ -25,13 +29,14 @@
                         continue;
                     }
                     ?>
-                    <li><a href="<?php echo basename($directory) ?>"><?php echo ucwords(basename($directory)) ?></a></li>
+                    <a href="<?php echo basename($directory) ?>"
+                       class="list-group-item list-group-item-action"><?php echo ucwords(basename($directory)) ?></a>
 
                     <?php
 
                 }
                 ?>
-            </ul>
+            </div>
         </div>
 
     </div>

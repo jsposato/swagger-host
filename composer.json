@@ -1,0 +1,16 @@
+{
+    "name": "jsposato/swagger-host",
+    "description": "Host Swagger docs in HTML format",
+    "type": "project",
+    "require": {
+        "aws/aws-sdk-php": "^3.28"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "John Sposato",
+            "email": "jsposato@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

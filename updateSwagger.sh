@@ -14,7 +14,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 nginx_public_directory="/usr/share/nginx/html"
-s3_bucket_name=""
+s3_bucket_name="CHANGE_ME"
 
 ### Download all JSON files from API Doc store
 echo "Downloading Swagger spec from S3"

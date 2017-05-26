@@ -2,7 +2,8 @@
 ini_set('display_errors', '1');
 
 echo "<pre>";
-print_r($_REQUEST);
+print_r($_FILES);
+print_r($_POST);
 echo "</pre>";
 
 define('S3_BUCKET', 'mobci-swagger-docs');
@@ -34,7 +35,7 @@ if (isset($_POST['submit'])) {
 <div class="container">
     <div class="row">
         <div class="col-xs-8">
-            <form class="form-inline" action="upload.php" method="post" enctype="multipart/form-data">
+            <form class="form-inline" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="fileInput">Select a file to upload:</label>
                     <input type="file" class="form-control" id="fileInput">
